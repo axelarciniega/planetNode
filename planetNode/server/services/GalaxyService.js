@@ -13,6 +13,7 @@ class GalaxyService{
 
     async getGalaxies(query) {
         const galaxies = await dbContext.Galaxy.find(query)
+        return galaxies
      }
 
 
