@@ -6,8 +6,11 @@ export class HouseController extends BaseController{
     constructor(){
         super('api/houses')
         this.router
+        .post('', this.createHouse)
 
     }
+
+
 
 
 
@@ -23,4 +26,14 @@ export class HouseController extends BaseController{
         }
        
     }
+
+    async gethouses(request, response, next){
+        try {
+            const houses = await houseService.getHouses()
+            response.send(houses)
+        } catch (error) {
+            next.error
+        }
+    }
+
 }
